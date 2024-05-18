@@ -59,7 +59,11 @@ class IPLookupIPInfoTest extends TestCase
         ];
     }
 
-    private function getMockedIpAddress(string $ip = '8.8.8.8')
+    /**
+     * @param string $ip
+     * @return IPAddress|MockObject
+     */
+    private function getMockedIpAddress(string $ip = '8.8.8.8'): IPAddress
     {
         $ipAddressMock = $this->createMock(IPAddress::class);
         $ipAddressMock->method('getIP')->willReturn($ip);
@@ -71,7 +75,7 @@ class IPLookupIPInfoTest extends TestCase
      * 
      * @return IPLookupIPInfo|MockObject
      */
-    private function getIpLookupIPInfoMock($ipInfoMock)
+    private function getIpLookupIPInfoMock($ipInfoMock): IPLookupIPInfo
     {
         /** @var IPLookupIPInfo|MockObject $ipLookupMock */
         $ipLookupMock = $this->getMockBuilder(IPLookupIPInfo::class)
