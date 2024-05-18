@@ -19,18 +19,13 @@ class IPLookupIPInfo implements IPLookupInterface
         $this->accessToken = $accessToken;
     }
 
-    protected function createIPinfoClient(): IPinfo
-    {
-        return new IPinfo($this->accessToken);
-    }
-
     public function getIPInformation(IPAddress $ipAddress): string
     {
         if (!$this->accessToken) {
             throw InvalidAuthTokenException::NoAuthTokenProvided();
         }
 
-        $client = $this->createIPinfoClient();
+        $client = new IPinfo($this->accessToken);
 
         try {
             $ipInfo = $client->getDetails($ipAddress->getIP());

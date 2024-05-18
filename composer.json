@@ -4,7 +4,8 @@
         "ipinfo/ipinfo": "^3.0"
     },
     "require-dev": {
-        "phpunit/phpunit": "^9.5"
+        "phpunit/phpunit": "^9.5",
+        "mockery/mockery": "^1.6"
     },
     "autoload": {
         "psr-4": {
